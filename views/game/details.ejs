@@ -1,0 +1,44 @@
+<%- include('../header') -%>
+<div id=<%= data.id %> class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <img class="img-fluid" alt="Responsive image" src=<%= data.image_url %> />
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-12">
+          <h3><%= data.title %></h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p><%= data.description %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h5>Mode: <%= data.mode.title %></h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h5>Date Released: <%= data.released %></h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+            <div class="genres"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%- include("./game_genre") -%>
+    </div>
+  </div>
+</div>
+<%- include('../jquery') -%>
+<script type="text/javascript" src="../static/js/game_detail.js"></script>
+<script type="text/javascript" src="../static/js/genre_select.js"></script>
+<%- include('../footer') -%>

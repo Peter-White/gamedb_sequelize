@@ -1,0 +1,41 @@
+<%- include('../header') -%>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <% genres.forEach(function(genre, index) { %>
+            <tr>
+              <td><a href="/genres/<%= genre.id %>"><%= genre.name %></a></td>
+            </tr>
+          <% }) %>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <a class="form-toggle" href="#">Show</a>
+      <div class="form_contatiner hide">
+        <form class="game_form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input name="name" type="text" class="form-control" placeholder="Enter genre name" />
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('../jquery') -%>
+<%- include('../datatable') -%>
+<script type="text/javascript" src="../static/js/genres.js"></script>
+<%- include('../footer') -%>

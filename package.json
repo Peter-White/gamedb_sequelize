@@ -1,0 +1,23 @@
+{
+  "name": "nodepg",
+  "version": "1.0.0",
+  "description": "The postgres version of gamestore",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "datatables.net-bs4": "^1.10.20",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "pg": "^7.17.1",
+    "pg-hstore": "^2.3.3",
+    "pug": "^2.0.4",
+    "sequelize": "^5.21.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

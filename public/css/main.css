@@ -1,0 +1,15 @@
+.container {
+    margin-top: 50px;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+a.btn.btn-primary.genre-link {
+    margin: 1px;
+}
