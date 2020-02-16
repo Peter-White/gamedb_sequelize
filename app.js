@@ -25,7 +25,7 @@ router.get('/', async function(req,res) {
 });
 
 router.get('/games', async function(req,res) {
-  const games = await sequelize.query("SELECT * FROM game", { type: QueryTypes.SELECT });
+  const games = await sequelize.query("SELECT * FROM games", { type: QueryTypes.SELECT });
   res.render('game/index.ejs', { games: games });
 });
 
@@ -33,8 +33,7 @@ router.get('/games/:game_id', async function(req,res) {
   let data = {};
 
   try {
-    const game = await sequelize.query(`SELECT * FROM game WHERE id = ${req.params.game_id} LIMIT 1`, { type: QueryTypes.SELECT });
-    const mode = await sequelize.query(`SELECT * FROM mode WHERE id = ${game[0].mode_id} LIMIT 1`, { type: QueryTypes.SELECT });
+    const game = await sequelize.query(`SELECT * FROM games WHERE id = ${req.params.game_id} LIMIT 1`, { type: QueryTypes.SELECT });
 
     data = game[0];
     delete data.mode_id;
@@ -67,6 +66,11 @@ router.get('/genres/:genre_id', async function(req,res) {
 
 router.get('/post_genre', async function(req, res) {
   res.render('genre/post.ejs');
+});
+
+router.get('/games', async function(req, res) {
+  const games = await sequelize.query("SELECT * FROM games", { type: QueryTypes.SELECT });
+  res.render('game/index.ejs', { games: games });
 });
 
 app.use('/', router);
