@@ -9,7 +9,6 @@ app.use('/static', express.static('public'))
 let ejs = require('ejs');
 app.set('view engine', 'ejs');
 
-app.use("/api/mode", require("./routes/api/mode"));
 app.use("/api/company", require("./routes/api/company"));
 app.use("/api/genre", require("./routes/api/genre"));
 app.use("/api/platform", require("./routes/api/platform"));
@@ -48,7 +47,7 @@ router.get('/games/:game_id', async function(req,res) {
 });
 
 router.get('/genres', async function(req, res) {
-  const genres = await sequelize.query("SELECT * FROM genre", { type: QueryTypes.SELECT });
+  const genres = await sequelize.query("SELECT * FROM genres", { type: QueryTypes.SELECT });
   res.render('genre/index.ejs', { genres: genres });
 });
 
@@ -56,7 +55,7 @@ router.get('/genres/:genre_id', async function(req,res) {
   let data = {};
 
   try {
-    const genre = await sequelize.query(`SELECT * FROM genre WHERE id = ${req.params.genre_id} LIMIT 1`, { type: QueryTypes.SELECT });
+    const genre = await sequelize.query(`SELECT * FROM genres WHERE id = ${req.params.genre_id} LIMIT 1`, { type: QueryTypes.SELECT });
 
     data = genre[0];
   } catch {

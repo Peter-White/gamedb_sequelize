@@ -5,6 +5,6 @@ class Publisher extends Model {}
 Publisher.init({
   game_id: DataTypes.INTEGER,
   company_id: DataTypes.INTEGER
-}, { sequelize, modelName: 'publishers' });
+}, { sequelize, modelName: 'publisher', tableName: 'publishers' });
 
 module.exports = Publisher;

@@ -9,6 +9,6 @@ Game.init({
   description: DataTypes.STRING,
   rating: DataTypes.STRING,
   cover: DataTypes.STRING
-}, { sequelize, modelName: 'games' });
+}, { sequelize, modelName: 'game', tableName: 'games' });
 
 module.exports = Game;

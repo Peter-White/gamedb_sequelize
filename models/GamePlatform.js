@@ -5,6 +5,6 @@ class GamePlatform extends Model {}
 GamePlatform.init({
   game_id: DataTypes.INTEGER,
   platform_id: DataTypes.INTEGER
-}, { sequelize, modelName: 'game_platform' });
+}, { sequelize, modelName: 'game_platform', tableName: 'game_platform' });
 
 module.exports = GamePlatform;

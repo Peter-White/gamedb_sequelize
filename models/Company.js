@@ -9,6 +9,6 @@ Company.init({
   founded: DataTypes.INTEGER,
   discontinued: DataTypes.STRING,
   logo: DataTypes.STRING
-}, { sequelize, modelName: 'companies' });
+}, { sequelize, modelName: 'company', tableName: 'companies' });
 
 module.exports = Company;

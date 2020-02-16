@@ -5,6 +5,6 @@ class GameGenre extends Model {}
 GameGenre.init({
   game_id: DataTypes.INTEGER,
   genre_id: DataTypes.INTEGER
-}, { sequelize, modelName: 'game_genre' });
+}, { sequelize, modelName: 'game_genre', tableName: 'game_genre' });
 
 module.exports = GameGenre;

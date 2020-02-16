@@ -4,6 +4,6 @@ const sequelize = require("../config/db");
 class Genre extends Model {}
 Genre.init({
   name: DataTypes.STRING
-}, { sequelize, modelName: 'genres' });
+}, { sequelize, modelName: 'genre', tableName: 'genres' });
 
 module.exports = Genre;

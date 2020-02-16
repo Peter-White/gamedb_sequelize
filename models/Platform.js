@@ -9,6 +9,6 @@ Platform.init({
   released: DataTypes.DATE,
   discontinued: DataTypes.DATE,
   description: DataTypes.STRING
-}, { sequelize, modelName: 'platforms' });
+}, { sequelize, modelName: 'platform', tableName: 'platforms' });
 
 module.exports = Platform;
