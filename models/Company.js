@@ -8,7 +8,7 @@ Company.init({
   description: DataTypes.STRING,
   founded: DataTypes.INTEGER,
   discontinued: DataTypes.STRING,
-  image_url: DataTypes.STRING
-}, { sequelize, modelName: 'company' });
+  logo: DataTypes.STRING
+}, { sequelize, modelName: 'companies' });
 
 module.exports = Company;

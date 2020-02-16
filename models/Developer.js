@@ -5,6 +5,6 @@ class Developer extends Model {}
 Developer.init({
   game_id: DataTypes.INTEGER,
   company_id: DataTypes.INTEGER
-}, { sequelize, modelName: 'game_developer' });
+}, { sequelize, modelName: 'developers' });
 
 module.exports = Developer;

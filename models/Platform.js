@@ -3,12 +3,12 @@ const sequelize = require("../config/db");
 
 class Platform extends Model {}
 Platform.init({
-  title: DataTypes.STRING,
+  name: DataTypes.STRING,
   manufacturer_id: DataTypes.INTEGER,
-  image_url: DataTypes.STRING,
+  image: DataTypes.STRING,
   released: DataTypes.DATE,
   discontinued: DataTypes.DATE,
   description: DataTypes.STRING
-}, { sequelize, modelName: 'platform' });
+}, { sequelize, modelName: 'platforms' });
 
 module.exports = Platform;
