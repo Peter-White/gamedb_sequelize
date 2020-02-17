@@ -5,7 +5,6 @@
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Title</th>
             <th scope="col">Released</th>
           </tr>
@@ -14,7 +13,6 @@
 
           <% games.forEach(function(game, index) { %>
             <tr>
-              <th scope="row"><%= index + 1 %></th>
               <td><a href="/games/<%= game.id %>"><%= game.title %></a></td>
               <td><%= game.released %></td>
             </tr>
@@ -24,7 +22,13 @@
       </table>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%- include('./post') -%>
+    </div>
+  </div>
 </div>
 <%- include('../jquery') -%>
 <%- include('../datatable') -%>
+<script type="text/javascript" src="../static/js/games.js"></script>
 <%- include('../footer') -%>

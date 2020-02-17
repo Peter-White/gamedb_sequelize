@@ -1,0 +1,40 @@
+<form class="game_form">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input name="title" type="text" class="form-control" placeholder="Enter title name" />
+  </div>
+  <div class="form-group">
+    <label for="name">Description</label>
+    <textarea name="description" class="form-control" rows="5"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="mode">Mode</label>
+    <select class="form-control" id="mode">
+      <option>Single Player</option>
+      <option>Multiplayer</option>
+      <option>Single Player / Multiplayer</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="rating">Rating</label>
+    <select class="form-control" id="rating">
+      <option>NR</option>
+      <option>EC</option>
+      <option>E</option>
+      <option>E10 / KA</option>
+      <option>T</option>
+      <option>M</option>
+      <option>AO</option>
+      <option>RP</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="date-input">Released</label>
+    <input class="form-control" type="date" id="date-input" />
+  </div>
+  <div class="form-group">
+    <label for="cover">Cover Art URL</label>
+    <input name="cover" type="text" class="form-control" placeholder="Enter url name" />
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

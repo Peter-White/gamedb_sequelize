@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  let $game_form = $(".game_form");
+  let $genre_form = $("genre_form");
   let $genre = $('input[name=name]');
   let $genres = $("table").DataTable();
   let $form_contatiner = $(".form_contatiner");
@@ -19,7 +19,7 @@ $(document).ready(function(){
     }
   });
 
-  $game_form.submit(function(e) {
+  $genre_form.submit(function(e) {
     e.preventDefault();
     const name = $genre.val();
 

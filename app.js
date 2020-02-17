@@ -36,8 +36,6 @@ router.get('/games/:game_id', async function(req,res) {
     const game = await sequelize.query(`SELECT * FROM games WHERE id = ${req.params.game_id} LIMIT 1`, { type: QueryTypes.SELECT });
 
     data = game[0];
-    delete data.mode_id;
-    data.mode = mode[0];
   } catch {
     data = { error: "Game not found" };
   }
@@ -62,15 +60,10 @@ router.get('/genres/:genre_id', async function(req,res) {
   }
 
   res.render('genre/details.ejs', { data: data });
-})
+});
 
 router.get('/post_genre', async function(req, res) {
   res.render('genre/post.ejs');
-});
-
-router.get('/games', async function(req, res) {
-  const games = await sequelize.query("SELECT * FROM games", { type: QueryTypes.SELECT });
-  res.render('game/index.ejs', { games: games });
 });
 
 app.use('/', router);
