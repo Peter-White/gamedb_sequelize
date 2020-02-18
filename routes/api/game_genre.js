@@ -5,7 +5,7 @@ let GameGenre = require('../../models/GameGenre');
 let Game = require('../../models/Game');
 let Genre = require('../../models/Genre');
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
 
   // Return a list of genres with game_id and a list of games with genre_id
   const game_id = req.query["game_id"];
@@ -35,16 +35,32 @@ router.get("/", (req, res) => {
   }
 
   try {
-    GameGenre.findAll({
+    let gg = {};
+
+    let ggQuery = await GameGenre.findAll({
+      raw: true,
       where: where
-    }).then(
-      function(gamegenres) {
-        res.json(gamegenres);
-      },
-      function(err) {
-        res.json(err);
+    });
+
+    for (let i in ggQuery) {
+      if(where.game_id && where.genre_id) {
+        gg = ggQuery[0];
+      } else if(where.game_id) {
+        if(!gg[ggQuery[i].game_id]) {
+          gg[ggQuery[i].game_id] = [];
+        }
+        let genre = await Genre.findByPk(ggQuery[i].genre_id, { raw: true });
+        gg[ggQuery[i].game_id].push(genre);
+      } else {
+        if(!gg[ggQuery[i].genre_id]) {
+          gg[ggQuery[i].genre_id] = [];
+        }
+        let game = await Game.findByPk(ggQuery[i].game_id, { raw: true });
+        gg[ggQuery[i].genre_id].push(game);
       }
-    );
+    }
+
+    res.json(gg);
   } catch {
     res.send({ error: "Something went wrong" });
   }

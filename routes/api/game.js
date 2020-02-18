@@ -30,15 +30,17 @@ router.get('/:game_id', async (req, res) => {
 router.post('/', [], async (req, res) => {
   const title = req.header("title");
   const released = req.header("released");
-  const mode_id = req.header("mode_id");
-  const image_url = req.header("image_url");
+  const rating = req.header("rating");
+  const mode = req.header("mode");
+  const cover = req.header("cover");
   const description = req.header("description");
 
   Game.create({
     title,
     released,
-    mode_id,
-    image_url,
+    mode,
+    rating,
+    cover,
     description
   }).then(
     function(game) {
